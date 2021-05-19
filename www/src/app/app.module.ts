@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialAllComponentsModule } from './angular-material-all.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormSandboxComponent } from './form-sandbox/form-sandbox.component';
+import { MaterialDesignFrameworkModule } from '@ajsf/material';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormSandboxComponent } from './form-sandbox/form-sandbox.component';
     BrowserModule,
     AppRoutingModule,
     MaterialAllComponentsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialDesignFrameworkModule
   ],
   providers: [],
   bootstrap: [AppComponent]

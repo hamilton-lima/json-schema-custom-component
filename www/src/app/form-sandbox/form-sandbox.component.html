@@ -1,6 +1,16 @@
 <h1>JSON schema form generation sandbox</h1>
 <div class="columns">
-    <div class="column">1</div>
-    <div class="column">2</div>
-    <div class="column">3</div>
+  <div class="column">{{ jsonSchema | json }}</div>
+  <div class="column">
+    <!--  -->
+    <json-schema-form
+      *ngIf="jsonSchema"
+      loadExternalAssets="false"
+      [form]="jsonSchema"
+      framework="material-design"
+      (onSubmit)="onSubmit($event)"
+    >
+    </json-schema-form>
+  </div>
+  <div class="column">{{ output | json }}</div>
 </div>

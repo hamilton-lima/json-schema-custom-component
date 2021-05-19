@@ -22,5 +22,6 @@ import { PotatoComponent } from './potato/potato.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [PotatoComponent]
 })
 export class AppModule {}

@@ -22,7 +22,7 @@ export class FormSandboxComponent implements OnInit {
 
   onSubmit(event:any){
     console.log('onSubmit', event);
-    this.output = JSON.stringify(event);
+    this.output = event;
   }
 
 }

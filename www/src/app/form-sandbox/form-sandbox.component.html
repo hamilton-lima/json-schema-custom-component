@@ -1,8 +1,13 @@
 <h1>JSON schema form generation sandbox</h1>
 <div class="columns">
-  <div class="column">{{ jsonSchema | json }}</div>
   <div class="column">
-    <!--  -->
+    <ngx-json-viewer
+      *ngIf="jsonSchema"
+      [json]="jsonSchema"
+      [expanded]="true"
+    ></ngx-json-viewer>
+  </div>
+  <div class="column">
     <json-schema-form
       *ngIf="jsonSchema"
       loadExternalAssets="false"
@@ -12,5 +17,11 @@
     >
     </json-schema-form>
   </div>
-  <div class="column">{{ output | json }}</div>
+  <div class="column">
+    <ngx-json-viewer
+      *ngIf="output"
+      [json]="output"
+      [expanded]="true"
+    ></ngx-json-viewer>
+  </div>
 </div>

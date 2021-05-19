@@ -7,20 +7,19 @@ import { MaterialAllComponentsModule } from './angular-material-all.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormSandboxComponent } from './form-sandbox/form-sandbox.component';
 import { MaterialDesignFrameworkModule } from '@ajsf/material';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FormSandboxComponent
-  ],
+  declarations: [AppComponent, FormSandboxComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialAllComponentsModule,
     BrowserAnimationsModule,
-    MaterialDesignFrameworkModule
+    MaterialDesignFrameworkModule,
+    NgxJsonViewerModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

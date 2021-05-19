@@ -1,1 +1,9 @@
-<p>potato works!</p>
+<div>
+  <div *ngFor="let note of controlValue" class="notification is-link is-light">
+    {{ note.type }} - {{ note.text }}<br>
+    {{ note | json }}
+  </div>
+</div>
+<button (click)="add()" mat-icon-button color="primary" aria-label="Add">
+  <mat-icon>add</mat-icon>
+</button>

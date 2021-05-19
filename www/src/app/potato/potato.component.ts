@@ -57,16 +57,19 @@ export class PotatoComponent implements OnInit {
 
     // pushes value
     this.controlValue.push(newLine);
-
-    // update the form array to add a new line
+    
+    // // update the form array to add a new line
     const group = new FormGroup({
-      type: new FormControl(),
-      text: new FormControl(),
+      type: new FormControl(newLine.type),
+      text: new FormControl(newLine.text),
     });
     this.formArray.controls.push(group);
+    this.formArray.markAsDirty();    
 
     // updates value
     this.jsf.updateValue(this, this.controlValue);
+    console.log('form array after updates', this.formArray);
+
   }
 
   getValue() {

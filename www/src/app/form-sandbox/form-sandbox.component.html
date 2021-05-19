@@ -14,6 +14,9 @@
       [form]="jsonSchema"
       framework="material-design"
       (onSubmit)="onSubmit($event)"
+      (onChanges)="log('onChanges', $event)"
+      (isValid)="log('isValid', $event)"
+      (validationErrors)="log('validationErrors', $event)"
     >
     </json-schema-form>
   </div>

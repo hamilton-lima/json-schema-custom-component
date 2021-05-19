@@ -18,7 +18,6 @@ export class FormSandboxComponent implements OnInit {
     private cdf: ChangeDetectorRef,
     private widgetLibrary: WidgetLibraryService
   ) {
-
     widgetLibrary.registerWidget('potato', PotatoComponent);
   }
 
@@ -31,5 +30,9 @@ export class FormSandboxComponent implements OnInit {
   onSubmit(event: any) {
     console.log('onSubmit', event);
     this.output = event;
+  }
+
+  log(label: string, event: any) {
+    console.log('[log]', label, event);
   }
 }

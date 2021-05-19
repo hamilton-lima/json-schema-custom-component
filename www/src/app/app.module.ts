@@ -8,9 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormSandboxComponent } from './form-sandbox/form-sandbox.component';
 import { MaterialDesignFrameworkModule } from '@ajsf/material';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
+import { PotatoComponent } from './potato/potato.component';
 
 @NgModule({
-  declarations: [AppComponent, FormSandboxComponent],
+  declarations: [AppComponent, FormSandboxComponent, PotatoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

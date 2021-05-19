@@ -63,11 +63,9 @@ export class PotatoComponent implements OnInit {
       type: new FormControl(newLine.type),
       text: new FormControl(newLine.text),
     });
-    this.formArray.controls.push(group);
-    this.formArray.markAsDirty();    
+    this.formArray.push(group);
+    this.formArray.markAsDirty();
 
-    // updates value
-    this.jsf.updateValue(this, this.controlValue);
     console.log('form array after updates', this.formArray);
 
   }

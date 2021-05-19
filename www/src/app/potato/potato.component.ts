@@ -1,18 +1,7 @@
 import { JsonSchemaFormService } from '@ajsf/core';
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-} from '@angular/forms';
-import { TileStyler } from '@angular/material/grid-list/tile-styler';
-
-interface INotes {
-  type: string;
-  text: string;
-}
+import { Component, Input, OnInit } from '@angular/core';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormSandboxService, INote } from '../form-sandbox.service';
 
 @Component({
   selector: 'app-potato',
@@ -20,10 +9,14 @@ interface INotes {
   styleUrls: ['./potato.component.scss'],
 })
 export class PotatoComponent implements OnInit {
-  // copied from https://github.com/hamzahamidi/ajsf/blob/master/projects/ajsf-core/src/lib/widget-library/input.component.ts
-  formControl: AbstractControl;
+  /* 
+   See 
+   https://github.com/hamzahamidi/ajsf/blob/master
+   projects/ajsf-core/src/lib/widget-library/input.component.ts
+  */
+  formControl: FormArray;
   controlName: string;
-  controlValue: INotes[];
+  controlValue: INote[];
   controlDisabled = false;
   boundControl = false;
   options: any;
@@ -31,46 +24,27 @@ export class PotatoComponent implements OnInit {
   @Input() layoutIndex: number[];
   @Input() dataIndex: number[];
 
-  // auto created by JSF
-  formArray: FormArray;
-
   constructor(
     private jsf: JsonSchemaFormService,
-    private cdf: ChangeDetectorRef,
-    private fb: FormBuilder
+    private service: FormSandboxService
   ) {}
 
   ngOnInit() {
     this.options = this.layoutNode.options || {};
     this.jsf.initializeControl(this);
-
-    this.formArray = this.jsf.formGroup.get(this.controlName);
-
-    // is a formControl created?
-    const value = this.jsf.formGroup.get(this.controlName).value;
-    console.log('created form control value', value);
-    console.log('is this a form array?', this.formArray);
+    console.log('formArray initial state', this.formControl);
   }
 
   add() {
-    const newLine = { type: 'foo', text: 'something else' };
+    const note = this.service.getRandomNote();
 
-    // pushes value
-    this.controlValue.push(newLine);
-    
-    // // update the form array to add a new line
+    // Update the form array new a new line
     const group = new FormGroup({
-      type: new FormControl(newLine.type),
-      text: new FormControl(newLine.text),
+      type: new FormControl(note.type),
+      text: new FormControl(note.text),
     });
-    this.formArray.push(group);
-    this.formArray.markAsDirty();
+    this.formControl.push(group);
 
-    console.log('form array after updates', this.formArray);
-
-  }
-
-  getValue() {
-    return this.controlValue;
+    console.log('formArray after updates', this.formControl);
   }
 }

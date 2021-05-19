@@ -1,3 +1,4 @@
+export const NOTE_TYPES = ['personal', 'family', 'pet', 'work'];
 export const POTATO = {
   schema: {
     type: 'object',
@@ -10,7 +11,7 @@ export const POTATO = {
           properties: {
             type: {
               type: 'string',
-              enum: ['personal', 'family', 'pet', 'work'],
+              enum: NOTE_TYPES,
             },
             text: { type: 'string' },
           },

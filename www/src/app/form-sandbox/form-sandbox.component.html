@@ -8,6 +8,16 @@
     ></ngx-json-viewer>
   </div>
   <div class="column">
+    <div *ngIf="jsf.formGroup">
+      <div class="columns">
+        <app-traffic-light class="column" [condition]="jsf.formGroup.pristine"
+          >Pristine</app-traffic-light
+        >
+        <app-traffic-light class="column" [condition]="jsf.formGroup.dirty"
+          >Dirty</app-traffic-light
+        >
+      </div>
+    </div>
     <json-schema-form
       *ngIf="jsonSchema"
       loadExternalAssets="false"

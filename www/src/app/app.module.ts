@@ -9,9 +9,15 @@ import { FormSandboxComponent } from './form-sandbox/form-sandbox.component';
 import { MaterialDesignFrameworkModule } from '@ajsf/material';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { PotatoComponent } from './potato/potato.component';
+import { TrafficLightComponent } from './traffic-light/traffic-light.component';
 
 @NgModule({
-  declarations: [AppComponent, FormSandboxComponent, PotatoComponent],
+  declarations: [
+    AppComponent,
+    FormSandboxComponent,
+    PotatoComponent,
+    TrafficLightComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,6 +28,6 @@ import { PotatoComponent } from './potato/potato.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [PotatoComponent]
+  entryComponents: [PotatoComponent],
 })
 export class AppModule {}

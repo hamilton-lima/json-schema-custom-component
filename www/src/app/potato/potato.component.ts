@@ -44,6 +44,7 @@ export class PotatoComponent implements OnInit {
       text: new FormControl(note.text),
     });
     this.formControl.push(group);
+    this.formControl.markAsDirty();
 
     console.log('formArray after updates', this.formControl);
   }
